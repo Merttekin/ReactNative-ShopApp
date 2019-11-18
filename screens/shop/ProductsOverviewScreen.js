@@ -2,9 +2,11 @@
 import React from 'react';
 import {FlatList} from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import ProductItem from '../../components/shop/ProductItem';
 import * as cartActions from '../../store/actions/cart';
+import Colors from '../../constants/Colors';
 
 const ProductsOverviewScreen = props => {
   const products = useSelector(state => state.products.availableProducts);
@@ -33,8 +35,11 @@ const ProductsOverviewScreen = props => {
   );
 };
 
-ProductsOverviewScreen.navigationOptions = {
-    headerTitle: 'All Products'
+ProductsOverviewScreen.navigationOptions = navData => {
+  return {
+    headerTitle: 'All Products',
+    headerRight: <Icon name="cart" size={24} color="#fff" onPress={() => {navData.navigation.navigate('Cart')}} />,
+  }
 }
 
 export default ProductsOverviewScreen;
