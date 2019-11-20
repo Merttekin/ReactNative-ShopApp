@@ -38,6 +38,7 @@ const ProductsOverviewScreen = props => {
 ProductsOverviewScreen.navigationOptions = navData => {
   return {
     headerTitle: 'All Products',
+    headerLeft: <Icon name="menu" size={24} color="#fff" onPress={() => navData.navigation.toggleDrawer()} />,
     headerRight: <Icon name="cart" size={24} color="#fff" onPress={() => {navData.navigation.navigate('Cart')}} />,
   }
 }
